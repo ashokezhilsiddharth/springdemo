@@ -1,0 +1,15 @@
+<html xmlns:th="https://www.thymeleaf.org" 
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<title>Spring LDAP Secure Greetings Page/title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	
+	
+   <div sec:authorize="isAuthenticated()">
+      Authenticated as <span sec:authentication="name"></span></div>
+</body>
+
+</html>
