@@ -17,7 +17,7 @@ public class WebSecurityConfig {
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http
-      .authorizeRequests()
+      .authorizeHttpRequests()
         .anyRequest().fullyAuthenticated()
         .and()
       .formLogin();
@@ -35,22 +35,9 @@ public class WebSecurityConfig {
           .url("ldap://localhost:8389/dc=springframework,dc=org")
           .and()
         .passwordCompare()
-          .passwordEncoder(new BCryptPasswordEncoder())
+          //.passwordEncoder(new BCryptPasswordEncoder())
           .passwordAttribute("userPassword");
   }
 
 }
 
-//@Configuration
-//public class WebSecurityConfig {
-
-//  @Bean
-//  public SecurityFilterChain configure(HttpSecurity http) throws Exception {
-//    return http
-//      .authorizeRequests()
-//      .anyRequest().authenticated()
-//      .and()
-//      .formLogin(Customizer.withDefaults())
-//      .build();
-//  }
-//}

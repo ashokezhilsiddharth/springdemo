@@ -22,11 +22,11 @@ public class WebSecurityConfig {
 				.anyRequest().authenticated()
 			)
 				
-				 .formLogin() .and() .logout((logout) -> logout.permitAll())
+				/* .formLogin() .and() .logout((logout) -> logout.permitAll()) */
 				 
-				/*
-				 * .formLogin((form) -> form .loginPage("/login") .permitAll() )
-				 */
+				
+				  .formLogin((form) -> form .loginPage("/login") .permitAll() )
+				 
 			.logout((logout) -> logout.permitAll());
 
 		return http.build();
