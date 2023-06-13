@@ -3,7 +3,6 @@ package com.vtl.lecture.ldap.springldap.service.impl;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 import com.vtl.lecture.ldap.springldap.entity.Courses;
@@ -27,15 +26,16 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	//@Secured({"ROLE_VTL_LECTURER","ROLE_VTL_TEACHER","ROLE_VTL_TRAINER"})
-	public void addCourse(Courses courses) {
-		courseRepository.save(courses);
+	public Courses addCourse(Courses courses) {
+		Courses coursesEntity = courseRepository.save(courses);
+		return coursesEntity;
 	}
 
 	@Override
 	//@Secured("ROLE_VTL_LECTURER")
 	public void removeCourses(Courses courses) {
 		Optional<Courses> coursesOptional = courseRepository.findById(courses.getId());
-		courseRepository.delete(coursesOptional.get());
+		courseRepository.delete(coursesOptional.get());		
 		
 	}
 

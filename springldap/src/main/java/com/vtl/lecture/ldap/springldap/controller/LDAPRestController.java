@@ -87,7 +87,7 @@ public class LDAPRestController {
 		courses.setId(coursesDTO.getId());
 		courses.setName(coursesDTO.getName());
 		courseService.removeCourses(courses);
-		return new ResponseEntity<CoursesDTO>(coursesDTO, HttpStatusCode.valueOf(200));		
+		return new ResponseEntity<CoursesDTO>(coursesDTO, HttpStatusCode.valueOf(202));		
 	}
 
 }
